@@ -1,9 +1,11 @@
 pragma solidity >=0.7.0 <0.9.0;
+// SPDX-License-Identifier: MIT
+
 
 contract xuj14Wallet {
     address public owner;
     bool public limit;
-    uint public limitAmount;
+    mapping(address => uint) public limitAmount;
     address[5] private guardian;
     mapping(address => bool) private guardianVote;
     bool public hasGuardian;
@@ -18,21 +20,23 @@ contract xuj14Wallet {
     receive() external payable {}
 
     function pay(uint _amount, address _sendto) external payable {
-        require(msg.sender == owner, "You are not the owner of the wallet");
         require(address(this).balance >= _amount, "Not enough money in the wallet");
         if(limit == true){
-            require(limitAmount>=_amount, "Exceed the limit of spending");
+            require(limitAmount[msg.sender]>=_amount, "Exceed the limit of spending");
             // lower the limit because already spent (not sure if needed)
-            limitAmount -= _amount;
+            limitAmount[msg.sender] -= _amount;
         }
-        payable(_sendto).call{value: _amount}("");
+        else{
+            require(msg.sender == owner, "You are not the owner of the wallet");
+        }
+        payable(_sendto).call{value: _amount}("");  
     }
 
-    function setLimit(uint _amount) public {
+    function setLimit(address user, uint _amount) public {
         limit = true;
         // didnt check if limit amount is larger than account balance
         // because it is going to be checked when transferring
-        limitAmount = _amount;
+        limitAmount[user] = _amount;
     }
 
     function setGuardian(address[5] memory _guardian) public {
@@ -70,6 +74,7 @@ contract xuj14Wallet {
     }
 }
 
+// 0xEB75a0A38899593E9217be706b192329C040F0CC
 // https://docs.soliditylang.org/en/latest/cheatsheet.html#function-visibility-specifiers
 // https://docs.soliditylang.org/en/latest/types.html
 // https://blockchain-academy.hs-mittweida.de/courses/solidity-coding-beginners-to-intermediate/lessons/solidity-2-sending-ether-receiving-ether-emitting-events/topic/sending-ether-send-vs-transfer-vs-call/

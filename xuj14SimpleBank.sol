@@ -1,4 +1,5 @@
 pragma solidity >=0.7.0 <0.9.0;
+// SPDX-License-Identifier: MIT
 
 contract xuj14SimpleBank {
     mapping(address => uint) public balances;

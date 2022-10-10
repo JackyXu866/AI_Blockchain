@@ -1,0 +1,21 @@
+# Ethereum Smart Contract Homework
+
+- RCSID: xuj14
+- Name: Jacky Xu 
+- MetaMask: 0x79515EB867cFE64c213c998113d65c264c61A864
+- SmartContract Address:
+    - Messenger: 0x4A587787b87889a0dB397Fa4a7A8cD94D6D397c9 (ropsten)
+    - SimpleBank: 0x2c62B9Aae58956F08905F5dE1370ADF3A4fCBc2f (ropsten)
+    - Wallet: 0xEB75a0A38899593E9217be706b192329C040F0CC (goerli)
+    - Token: 0x26C3251dD6ffA57aC87BEF41c40d6ac296608a06 (goerli)
+    - TokenSale: 0x1727eEdeF71e94DD1daCfa5E5C5cDac19023028b (goerli)
+- Resources:
+    - https://docs.soliditylang.org/en/v0.8.16/types.html#string-literals-and-types
+    - https://www.tutorialspoint.com/solidity/solidity_mappings.htm
+    - https://www.tutorialspoint.com/solidity/solidity_functions.htm#:~:text=The%20return%20Statement,function%20to%20return%20a%20string.
+    - https://docs.soliditylang.org/en/latest/cheatsheet.html#function-visibility-specifiers
+    - https://docs.soliditylang.org/en/latest/types.html
+    - https://blockchain-academy.hs-mittweida.de/courses/solidity-coding-beginners-to-intermediate/lessons/solidity-2-sending-ether-receiving-ether-emitting-events/topic/sending-ether-send-vs-transfer-vs-call/
+    - // https://stackoverflow.com/questions/71808619/erc20-insufficient-
+    - https://docs.openzeppelin.com/contracts/4.x/api/token/erc20#ERC20
+- Collboration: None
